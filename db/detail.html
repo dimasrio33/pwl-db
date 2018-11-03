@@ -1,0 +1,55 @@
+
+<html>
+<head>
+	<title>Table Detail</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../bootstrap.css">
+	<script type="text/javascript" src="../jquery.js"></script>
+</head>
+
+<body class="container">
+	<h1></h1>
+	<table class="table table-striped">
+		<tbody>
+		<tr>
+			<td>Email</td>
+			<td id="email"></td>
+		</tr>
+		<tr>
+			<td>Company</td>
+			<td id="company"></td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td id="address"></td>
+		</tr>
+		<tr>
+			<td>City</td>
+			<td id="city"></td>
+		</tr>
+		<tr>
+			<td>Country</td>
+			<td id="country"></td>
+		</tr>
+		</tbody>
+	</table>
+	
+</body>
+
+<script type="text/javascript">
+	var params = new window.URLSearchParams(window.location.search);
+	var id = params.get('id');
+	console.log(id);
+	$.getJSON('route.php?i='+id, function(data) {
+		$("h1").text(data.fullname);
+		$("#email").text(data.email);
+		$("#company").text(data.company);
+		$("#address").text(data.address);
+		$("#city").text(data.city);
+		$("#country").text(data.country);
+	});
+
+</script>
+
+
+</html>

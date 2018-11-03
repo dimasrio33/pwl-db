@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Delete Member</title>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../bootstrap.css">
+	<script type="text/javascript" src="../jquery.js"></script>
+</head>
+
+<body></body>
+<script type="text/javascript">
+	var params = new window.URLSearchParams(window.location.search);
+	var id = params.get('id');
+
+	var btn = confirm("Yakin akan menghapus data?");
+	if(btn == true){
+		$.getJSON('route.php?del='+id, function(res, status) {	
+			if(status == "success"){
+				alert("Data berhasil dihapus");
+			}else{
+				alert("Error: "+res);
+			}
+			window.location = "table.html";
+		});	
+	} else{
+		window.location = "table.html";
+	}
+</script>
+
+</html>
